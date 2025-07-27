@@ -12,6 +12,14 @@ from rest_framework.permissions import AllowAny
 from rest_framework.permissions import IsAuthenticated
 
 
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def user_info(request):
+    serializer = UserSerializer(request.user)
+    return Response(serializer.data)
+
+
+
 class NoteViewSet(viewsets.ModelViewSet):
     serializer_class = NoteSerializer
     permission_classes = [IsAuthenticated]
