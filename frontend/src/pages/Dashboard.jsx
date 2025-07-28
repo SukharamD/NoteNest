@@ -5,7 +5,7 @@ import {
   getTasks,
   createTask,
   updateTask,
-  deleteTask,
+  deleteTask, 
  } from '../services/tasks';
 import {
   getNotes,

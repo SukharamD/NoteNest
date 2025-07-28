@@ -4,7 +4,7 @@ export const getUserProfile = async () => {
   if (!token) return null;
 
   try {
-    const res = await fetch('http://127.0.0.1:8000/api/user/', {
+    const res = await fetch('https://notenest-dwfg.onrender.com/api/user/', {
       headers: {
         Authorization: `Token ${token}`
       }
