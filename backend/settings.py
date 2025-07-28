@@ -142,8 +142,10 @@ REST_FRAMEWORK = {
 
 
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5173", 
+    "http://localhost:3000",
+    "https://notenest-sigma.vercel.app",
 ]
+git add .
 
 # Optional if using credentials (like login sessions)
 CORS_ALLOW_CREDENTIALS = True
