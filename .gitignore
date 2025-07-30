@@ -14,9 +14,7 @@ ENV/
 *.env
 .env
 
-# Django migrations
-**/migrations/
-!*/migrations/__init__.py
+**/migrations/__pycache__/
 
 # VS Code
 .vscode/
