@@ -8,9 +8,27 @@ const headers = {
 };
 
 export const getTasks = async () => {
-  const res = await fetch(`${BASE_URL}/api/tasks/`, { headers });
+  const token = localStorage.getItem('token');
+
+  if (!token) {
+    console.warn('No token found. Skipping task fetch.');
+    return []; // or throw an error
+  }
+
+  const res = await fetch(`${BASE_URL}/api/tasks/`, {
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    },
+  });
+
+  if (!res.ok) {
+    throw new Error(`Failed to fetch tasks: ${res.status}`);
+  }
+
   return res.json();
 };
+
 
 export const createTask = async (task) => {
   const res = await fetch(`${BASE_URL}/api/tasks/`, {
